@@ -1,0 +1,18 @@
+env = Environment()
+
+env.Append(CCFLAGS = ['-Wall'])
+
+# If linking to the static lib use this line. 
+env.Append(LIBS = ['test_static'])
+
+# If linking to the shared lib use this line. 
+#env.Append(LIBS = ['test_shared'])
+
+env.Append(CPPPATH = [''])
+env.Append(LIBPATH = ['.'])
+
+main_src = Split("""
+	 main.cpp 
+	 """)
+
+env.Program(target = 'main', source = main_src)

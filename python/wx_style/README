@@ -1,0 +1,7 @@
+This program was taken from the page on wxPyWiki that talked about wx coding style.  It mentioned writing custom classes instead of having a bunch of panels in one class.  It's a good boilerplate app to get a gui up & running.
+
+Dependencies
+
+    * Python 2.4 or greater
+    * wxPython
+

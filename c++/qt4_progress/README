@@ -1,0 +1,8 @@
+
+This is a dialog using qt4.  It has a button called Show Progress that spawns a thread which takes a while.  During that time it sends out progress events so the main dialog can update a progress bar. 
+
+Build Instructions
+
+* Make sure qt4 is installed. 
+* qmake 
+* make 

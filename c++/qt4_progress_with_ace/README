@@ -1,0 +1,18 @@
+
+This is a dialog using qt4.  It has a button called Show Progress that
+spawns a thread which takes a while.  During that time it sends out
+progress events so the main dialog can update a progress bar.  This
+example uses ACE_Thread_Manager to spawn the thread with a static
+member function as the thread's main function.  It uses QAppliction
+postEvent since sendEvent seemed like it was being called from the
+thread but also run in that thread and that won't work since it's
+touching gui elements.  This didn't seem to be the case when I was
+using a QThread derived class and send events from it with sendEvent.
+I haven't done the tests yet to confirm what was happening.
+
+Build Instructions
+
+* Install qt4.
+* Install ACE.
+* qmake
+* make

@@ -1,0 +1,24 @@
+env = Environment()
+
+env.Append(CCFLAGS = ['-Wall'])
+env.Append(LIBS = [''])
+env.Append(CPPPATH = [''])
+env.Append(LIBPATH = [''])
+
+lib_src = Split("""
+    Hiddenclass.cpp
+    Testclass.cpp
+    """)
+
+#
+# The only difference here is building a static library 
+# versus building a shared library.  When linking you would 
+# just put the name of the lib in the LIBS line and make sure 
+# the LIBPATH has the path to the lib.
+# 
+# If linking with the shared library the library would need to 
+# be present at runtime & the LD_LIBRARY_PATH would need to have 
+# the path to the lib.  
+#
+env.StaticLibrary(target = 'test_static', source = lib_src)
+env.SharedLibrary(target = 'test_shared', source = lib_src)

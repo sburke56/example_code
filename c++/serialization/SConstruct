@@ -1,0 +1,14 @@
+
+env = Environment()
+
+env.Append(CCFLAGS = ['-Wall'])
+env.Append(LIBS = [''])
+env.Append(CPPPATH = [''])
+env.Append(LIBPATH = [''])
+
+src_files = Split("""
+	main.cpp
+        shoe.cpp
+	""")
+
+env.Program(source = src_files, target = 'main')

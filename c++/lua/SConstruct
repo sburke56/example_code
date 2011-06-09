@@ -1,0 +1,13 @@
+
+env = Environment()
+
+env.Append(CCFLAGS = ['-Wall', '-g'])
+env.Append(LIBS = ['lua', 'dl'])
+env.Append(CPPPATH = ['/usr/local/include'])
+env.Append(LIBPATH = ['/usr/local/lib'])
+
+src_files = Split("""
+                  main.cpp
+ 	          """)
+
+env.Program(source = src_files, target = 'main')

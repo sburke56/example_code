@@ -1,0 +1,13 @@
+
+env = Environment()
+
+env.Append(CCFLAGS = ['-Wall'])
+env.Append(CPPPATH = ['/usr/local/include/log4cxx'])
+env.Append(LIBS = ['log4cxx'])
+env.Append(LIBPATH = ['/usr/local/lib'])
+
+src_files = Split("""
+	main.cpp
+	""")
+	
+env.Program(source = src_files, target = 'main')

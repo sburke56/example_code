@@ -1,0 +1,12 @@
+This program illustrates how you can embed a Lua interpreter into a
+C/C++ program.  The C program goes ahead and loads up a .lua file and
+then tells the interpreter to run the .lua file.
+
+The command line parameters to this program are .lua files which are
+run by the C program.  Included in this directory is a hello.lua file
+which prints out hello world to the screen.
+
+Build Instructions
+Download & install Lua 5.1 (make linux install) 
+Install scons 
+scons 

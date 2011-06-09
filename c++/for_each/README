@@ -1,0 +1,7 @@
+for_each and bind2nd example 
+
+This example illustrates the use of for_each to iterate through stl
+containers.  It's much cleaner than using a for loop and declaring
+iterators & puts the logic in it's own function.  You can use the
+binders bind1st and bind2nd to bind parameters to be passed to the
+function used by for_each.

@@ -1,0 +1,19 @@
+
+env = Environment()
+
+env.Append(CCFLAGS = ['-Wall', '-g'])
+env.Append(LIBS = ['ACE'])
+env.Append(CPPPATH = [''])
+env.Append(LIBPATH = [''])
+
+client_src_files = Split("""
+	client.cpp
+	""")
+
+server_src_files = Split("""
+	server.cpp
+	""")
+
+env.Program(source = client_src_files, target = 'client')
+env.Program(source = server_src_files, target = 'server')
+

@@ -1,0 +1,24 @@
+import os
+
+env = Environment()
+
+#
+# To set this preprocessor on the command line when building 
+# scons -Q auto_ptr=1 
+#
+auto_ptr = ARGUMENTS.get('auto_ptr', 0)
+
+if bool(auto_ptr):
+    env.Append(CPPDEFINES = 'USE_AUTO_PTR')
+
+env.Append(CCFLAGS = ['-Wall', '-O3'])
+env.Append(LIBS = [])
+env.Append(CPPPATH = ['/usr/local/include'])
+env.Append(LIBPATH = ['/usr/local/lib'])
+
+src_files = Split("""
+        db_conn.cpp
+	main.cpp
+	""")
+
+env.Program(source = src_files, target = 'main')

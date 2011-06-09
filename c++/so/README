@@ -1,0 +1,21 @@
+
+Shared & Static Library Template
+
+This is a template for a library that is built as 
+both a static library & a shared object using scons.  
+There is a makefile directory that contains the original file 
+that compiles the library on linux & windows with mingw.  Those 
+were'nt updated from the original download since I chose to use 
+scons. 
+
+Build Instructions 
+
+* scons -f sconscript_lib
+  -- This builds both the static library & the shared object. 
+  -- Modify the LIBS line in the sconscript_main file to 
+     specify what library you want to link to.  Either the 
+     static or shared version.  
+
+* scons -f sconscript_main 
+
+ 

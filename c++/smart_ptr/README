@@ -1,0 +1,33 @@
+Boost Smart Pointers (boost/smart_ptr.hpp)
+
+This is a program that illustrates a couple features of the boost
+smart pointers class including the RAII(Resource Acquisition is
+Initialization).
+
+*** 
+A simple guideline that nearly eliminates the possibility of memory
+leaks is: always use a named smart pointer variable to hold the result
+of new.  Every occurence of the new keyword in the code should have
+the form:
+
+shared_ptr<T> p(new Y);
+
+void bad()
+{
+    f(shared_ptr<int>(new int(2)), g());
+}
+
+The catch: Since function arguments are evaluated in unspecified
+order, it is possible for new int(2) to be evaluated first, g()
+second, and we may never get to the shared_ptr constructor if g throws
+an exception.  
+***
+
+Build Instructions
+
+      boost
+      *  boost/smart_ptr.hpp is a header only library so there is no
+         need to build anything
+
+      main
+      * scons

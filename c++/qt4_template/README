@@ -1,0 +1,8 @@
+
+This is a dialog using qt4.  It has one button that has a handler attached.  
+
+Build Instructions
+
+* Make sure qt4 is installed. 
+* qmake 
+* make 

@@ -1,0 +1,10 @@
+
+This is a simple logging class that has only one header to include.
+It can log to stdout or you specify a file for the log messages to be
+written to.  There are two compilation flags that are mentioned in the
+test main.cpp that govern the ouput of the logging in the compiled
+program.
+
+The main.cpp is an example program using log.h.  After running it the
+log file should be in the current directory with a name
+application.log.

@@ -1,0 +1,23 @@
+import os 
+
+cwd = os.getcwd()
+env = Environment()
+
+env.Append(CCFLAGS = ['-Wall'])
+env.Append(LIBS = ['cppunit', 'dl', 'simpleini'])
+env.Append(CPPPATH = [
+    '/usr/local/include',
+    os.path.join(cwd, '../simpleini'),
+    os.path.join(cwd, '../')
+    ])
+env.Append(LIBPATH = [
+    '/usr/local/lib',
+    os.path.join(cwd, '../')
+    ])
+
+src_files = Split("""
+	ConfigFileTestCase.cpp
+        Main.cpp
+	""")
+	
+env.Program(source = src_files, target = 'tests')

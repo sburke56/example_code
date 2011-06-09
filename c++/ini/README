@@ -1,0 +1,4 @@
+
+This is an ini file parser.  The ConfigFile class uses the SimpleIni library to read & write to a config file formatted as an ini file. 
+
+In the tests folder there is sample code using the library.  The ini file used in those tests is named options.cfg and resides in the test folder. 

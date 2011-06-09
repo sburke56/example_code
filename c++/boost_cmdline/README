@@ -1,0 +1,26 @@
+Elegant Command Line Parsing
+
+This is a program that illustrates the usage of the boost
+program_options library.  It allows you to handle command line
+arguments as well as a run control file of some type with
+configuration options in there as well.  This sample only illustrates
+the command line portion of it.  To build it you will need to build
+the boost library program_options.  Build instructions are below.
+
+The program is setup up where a struct with all public static methods
+contains any functions related to parsing the command line and then
+once that is done the static variable g_vm (Variable Map) & g_desc
+(Description) can be used.  Other classes wanting to use the variable
+map could declare the variable extern so they wouldn't have to include
+the command_line_utils header.
+
+Build Instructions
+
+      boost
+      *  download the source distribution to ~/boost
+      *  ./bootstrap.sh 
+      *  ./bjam --with-libraries=program_options --prefix=<alternate location>
+      *  ./bjam install 
+
+      main
+      * scons

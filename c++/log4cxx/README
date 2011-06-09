@@ -1,0 +1,3 @@
+
+This is a more robust logging scheme using the Apache log4cxx library.  The logging scheme can be modified in code, but is easier with a configuration file.  The name of the file is log4cxx.properties.  The main.cpp file has sample code using the library.  There is an appender that can log to file called file in the log4cxx.properties.  Add that appender to the root logger and it will write to the file example.log. 
+

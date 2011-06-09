@@ -1,0 +1,10 @@
+*  Eliminates an entire class of bugs. 
+
+*  Useful for acquiring resources and releasing them properly.
+
+*  Useful for state machines when something unexpected happens to do
+   something with the state like put it back to a default state,
+   recover from the error gracefully to remain fault tolerant, print
+   some error messages saying the system is in a funky state, etc.
+
+*  For the example to use the auto_ptr run 'scons -Q auto_ptr=1' 

@@ -1,0 +1,55 @@
+#
+#
+#
+MAINSRC=main.cpp
+DLLSRC=Testclass.cpp Hiddenclass.cpp
+HDR=Testclass.hpp
+SONAME=Testclass
+EXENAME=testprog
+
+#
+# MSVC 
+#
+ifeq ($(_TEST_PLATFORM_),msvc)
+  OBJ=$(DLLSRC:.cpp=.obj)
+  SO=$(SONAME).dll
+  EXE=$(EXENAME).exe
+  IMPORTLIB=$(SONAME).lib
+  %.obj : %.cpp
+	cl /c $< -DEXPAND_DLLEXPORT
+  all : $(EXE)
+  $(SO) : $(OBJ)
+	cl /LD $(OBJ)
+  $(EXE) : $(MAINSRC) $(SO)
+	cl /Fe$@ $(MAINSRC) $(SONAME).lib
+#
+# MINGW 
+#
+else
+  OBJ=$(DLLSRC:.cpp=.o)
+  ifeq ($(_TEST_PLATFORM_),mingw)
+    SO=lib$(SONAME).dll
+    EXE=$(EXENAME).exe
+    LINKINFO=$(SO)
+#
+# LINUX
+#
+  else
+    SO=lib$(SONAME).so
+    EXE=$(EXENAME)
+    LINKINFO=-L. -l$(SONAME)
+    CHCON=; chcon -t texrel_shlib_t $(SO)
+  endif
+  %.o : %.cpp
+	g++ -c $< 
+  all : $(EXE)
+  $(SO) : $(OBJ)
+	g++ -shared -o $(SO) $(OBJ)$(CHCON)
+  $(EXE) : $(MAINSRC) $(SO)
+	g++ -o $@ $< $(LINKINFO)
+endif
+
+
+
+clean:
+	rm $(OBJ) $(SO) $(EXE) $(IMPORTLIB)

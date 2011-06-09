@@ -1,0 +1,25 @@
+
+Dynamically loading a dll/so at runtime.
+
+This is a template for a library that is built as
+a shared object using scons.  The so can be used as
+the base class for a plugin that would be dynamically
+loaded at runtime.  There are two stubs that need to
+be exported from every plugin, create_object &
+destroy_object.  Those functions allow for an intance
+of the so to be created and then the public interface
+can be used.
+
+Build Instructions
+
+* scons -f sconscript_lib
+  -- This builds both the shared object.
+
+* scons -f sconscript_main
+  -- This builds the main executable that uses the shared object at
+     runtime
+  -- The path to the so needs to be specified on LD_LIBRARY_PATH
+
+* export LD_LIBRARY_PATH=$(LD_LIBRARY_PATH):/path/to/so
+
+

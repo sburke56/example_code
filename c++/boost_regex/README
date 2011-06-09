@@ -1,0 +1,16 @@
+This sample makes use of the boost regex library.  It allows you to
+perform regular expression matching similar to the grep/sed/awk
+utilities.  The typedef regex & wregex are used to specify the regex
+which is used in the same fasion as a std::string.  The function
+regex_match will find matches that consume the entire input text,
+where regex_search will find any matches within the input text.
+match_results is used to get the text that was matched by the regular
+expression.
+
+Building boost regex 
+
+./boostrap.sh --with-libraries=regex 
+./bjam 
+sudo ./bjam install 
+
+Link to boost_regex 

@@ -1,0 +1,16 @@
+import os
+
+env = Environment()
+
+root = '/mnt/burke-linux/sandbox'
+
+env.Append(CCFLAGS = ['-Wall', '-O3'])
+env.Append(LIBS = ['boost_program_options-mt'])
+env.Append(CPPPATH = ['/usr/local/include'])
+env.Append(LIBPATH = ['/usr/local/lib'])
+
+src_files = Split("""
+	main.cpp
+	""")
+
+env.Program(source = src_files, target = 'main')
